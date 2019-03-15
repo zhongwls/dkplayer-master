@@ -55,6 +55,7 @@ public class StandardVideoController extends GestureVideoController implements V
     private Animation mHideAnim = AnimationUtils.loadAnimation(getContext(), R.anim.dkplayer_anim_alpha_out);
     private BatteryReceiver mBatteryReceiver;
     protected ImageView mRefreshButton;
+    private TextView beisuTv;
 
 
     public StandardVideoController(@NonNull Context context) {
@@ -78,6 +79,7 @@ public class StandardVideoController extends GestureVideoController implements V
     protected void initView() {
         super.initView();
         mFullScreenButton = mControllerView.findViewById(R.id.fullscreen);
+        beisuTv = mControllerView.findViewById(R.id.tv_multi_rate);
         mFullScreenButton.setOnClickListener(this);
         mBottomContainer = mControllerView.findViewById(R.id.bottom_container);
         mTopContainer = mControllerView.findViewById(R.id.top_container);
@@ -106,6 +108,7 @@ public class StandardVideoController extends GestureVideoController implements V
         mBatteryReceiver = new BatteryReceiver(mBatteryLevel);
         mRefreshButton = mControllerView.findViewById(R.id.iv_refresh);
         mRefreshButton.setOnClickListener(this);
+        beisuTv.setOnClickListener(this);
     }
 
     @Override
@@ -133,6 +136,8 @@ public class StandardVideoController extends GestureVideoController implements V
             mMediaPlayer.retry();
         } else if (i == R.id.iv_refresh) {
             mMediaPlayer.refresh();
+        } else if (i == R.id.tv_multi_rate) {
+
         }
     }
 
